@@ -56,12 +56,13 @@ export const TradingSection = () => {
 
   const handleAmountChange = (e) => {
     const value = e.target.value;
-    if (value === '' || value === '.') {
-      setAmount('');
+    // Allow in-progress values like '.', '123.', etc.; just store the string
+    if (value === '' || value === '.' || /\d+\.$/.test(value)) {
+      setAmount(value);
       return;
     }
     const numValue = parseFloat(value);
-    if (!isNaN(numValue) && numValue >= 0 && numValue <= userBalance) {
+    if (!isNaN(numValue) && numValue >= 0) {
       setAmount(value);
     }
   };
@@ -117,7 +118,8 @@ export const TradingSection = () => {
                   if (isNaN(numValue)) {
                     setAmount('0.00');
                   } else {
-                    setAmount(numValue.toFixed(2));
+                    const clamped = Math.max(0, Math.min(userBalance, numValue));
+                    setAmount(clamped.toFixed(2));
                   }
                 }}
               />

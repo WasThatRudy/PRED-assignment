@@ -10,6 +10,8 @@ import React from 'react';
 export const CloseButton = ({ onClick, label = 'Close', className = '' }) => {
   return (
     <button
+      type="button"
+      onMouseDown={(e) => e.preventDefault()}
       onClick={onClick}
       className={`flex flex-row justify-center items-center p-[0.5rem_0.75rem] h-8 bg-button-bg backdrop-blur-[30px] flex-1 min-w-0 ${className}`}
     >

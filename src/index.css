@@ -64,10 +64,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    overflow-anchor: none;
   }
   
   html {
     overflow-x: hidden;
+    overflow-anchor: none;
   }
 
   /* Hide number input spinners across browsers */

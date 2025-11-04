@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { MoreVertical } from 'lucide-react';
 import { useTradeStore } from '../store/tradeStore';
@@ -9,6 +9,28 @@ export const Positions = () => {
   const activeTab = useTradeStore((state) => state.activePositionTab);
   const setActiveTab = useTradeStore((state) => state.setActivePositionTab);
   const closePosition = useTradeStore((state) => state.closePosition);
+
+  const itemRefs = useRef({});
+  const [visibleIds, setVisibleIds] = useState({}); // id -> boolean
+
+  const handleClose = (id) => {
+    // Avoid focus-induced scroll jumps
+    if (typeof document !== 'undefined' && document.activeElement && 'blur' in document.activeElement) {
+      try { document.activeElement.blur(); } catch {}
+    }
+    setVisibleIds((prev) => ({ ...prev, [id]: false }));
+  };
+
+  // Ensure any newly added positions are visible
+  useEffect(() => {
+    setVisibleIds((prev) => {
+      const next = { ...prev };
+      for (const pos of positions) {
+        if (!(pos.id in next)) next[pos.id] = true;
+      }
+      return next;
+    });
+  }, [positions]);
 
   const tabs = [
     { id: 'positions', label: 'Positions' },
@@ -57,25 +79,57 @@ export const Positions = () => {
       </div>
 
       {/* Positions List */}
-      <div className="flex flex-col items-start p-4 gap-4 w-full max-w-full">
+      <div className="flex flex-col items-start p-4 gap-4 w-full max-w-full" style={{ overflowAnchor: 'none' }}>
         <AnimatePresence initial={false} mode="wait">
-          {positions.map((pos) => (
-            <motion.div
-              key={pos.id}
-              layout
-              initial={{ opacity: 0, y: 14, height: 0 }}
-              animate={{ opacity: 1, y: 0, height: 'auto' }}
-              exit={{ opacity: 0, y: -14, height: 0, marginTop: 0, marginBottom: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="w-full"
-              style={{ overflow: 'hidden' }}
-            >
-              <PositionItem
-                position={pos}
-                onClose={() => closePosition(pos.id)}
-              />
-            </motion.div>
-          ))}
+          {positions.map((pos) => {
+            const isCollapsing = visibleIds[pos.id] === false;
+            return (
+              <motion.div
+                key={pos.id}
+                layout
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: isCollapsing ? 0 : 1, height: isCollapsing ? 0 : 'auto' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className="w-full"
+                style={{ overflow: 'hidden' }}
+                ref={(el) => {
+                  if (el) itemRefs.current[pos.id] = el;
+                  else delete itemRefs.current[pos.id];
+                }}
+                onAnimationComplete={() => {
+                  if (isCollapsing) {
+                    const beforeScroll = typeof window !== 'undefined' ? window.scrollY : 0;
+                    const beforeDocH = typeof document !== 'undefined' ? (document.documentElement.scrollHeight || document.body.scrollHeight) : 0;
+                    // Remove from store now
+                    closePosition(pos.id);
+                    // After DOM updates, offset scroll by document height change
+                    if (typeof window !== 'undefined') {
+                      const root = document.documentElement;
+                      const body = document.body;
+                      const prevRootBehavior = root.style.scrollBehavior;
+                      const prevBodyBehavior = body.style.scrollBehavior;
+                      root.style.scrollBehavior = 'auto';
+                      body.style.scrollBehavior = 'auto';
+                      requestAnimationFrame(() => {
+                        const afterDocH = document.documentElement.scrollHeight || document.body.scrollHeight;
+                        const deltaH = beforeDocH - afterDocH;
+                        if (deltaH !== 0) {
+                          window.scrollTo(0, beforeScroll - deltaH);
+                        }
+                        root.style.scrollBehavior = prevRootBehavior || '';
+                        body.style.scrollBehavior = prevBodyBehavior || '';
+                      });
+                    }
+                  }
+                }}
+              >
+                <PositionItem
+                  position={pos}
+                  onClose={() => handleClose(pos.id)}
+                />
+              </motion.div>
+            );
+          })}
           {positions.length === 0 && (
             <motion.p
               key="empty"

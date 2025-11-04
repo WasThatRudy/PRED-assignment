@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import ChevronUp from '../../assets/icons/up.svg';
 
 /**
@@ -12,6 +12,21 @@ import ChevronUp from '../../assets/icons/up.svg';
  * @param {string} props.className - Additional CSS classes
  */
 export const PositionHeader = ({ team, market, type, profit, profitPercent, className = '' }) => {
+  const formatToTwoDecimals = (input) => {
+    const original = String(input);
+    const match = original.match(/-?\d*\.?\d+/);
+    if (!match) return input;
+    const num = parseFloat(match[0]);
+    if (!Number.isFinite(num)) return input;
+    const rounded = Math.round((num + Number.EPSILON) * 100) / 100;
+    const formatted = String(rounded.toFixed(2))
+      .replace(/\.00$/, '')
+      .replace(/(\.[1-9])0$/, '$1');
+    return original.replace(match[0], formatted);
+  };
+
+  const profitDisplay = useMemo(() => `$${formatToTwoDecimals(profit)}`, [profit]);
+  const profitPercentDisplay = useMemo(() => formatToTwoDecimals(profitPercent), [profitPercent]);
   return (
     <div className={`flex flex-row justify-between items-center gap-[1.875rem] w-full h-8 z-0 ${className}`}>
       {/* Frame 37 - Left Side */}
@@ -35,9 +50,9 @@ export const PositionHeader = ({ team, market, type, profit, profitPercent, clas
 
       {/* Frame 40 - Right Side P&L */}
       <div className="flex flex-col justify-center items-end min-w-0 flex-shrink-0 h-8">
-        {/* $200 */}
+        {/* $ amount */}
         <span className="font-medium text-[0.625rem] sm:text-xs leading-4 text-brand-green h-4 text-right flex-shrink-0">
-          ${profit}
+          {profitDisplay}
         </span>
         
         {/* Frame 629 - Profit % */}
@@ -48,7 +63,7 @@ export const PositionHeader = ({ team, market, type, profit, profitPercent, clas
           </div>
           {/* 12.5% */}
           <span className="font-normal text-[0.625rem] sm:text-xs leading-4 text-brand-green h-4 text-right flex-shrink-0">
-            {profitPercent}%
+            {profitPercentDisplay}%
           </span>
         </div>
       </div>
