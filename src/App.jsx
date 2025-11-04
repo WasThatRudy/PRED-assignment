@@ -15,8 +15,8 @@ function App() {
           width: '814px',
           height: '1146.73px',
           left: 'calc(50% - 814px/2)',
-          top: 'calc(50% - 1146.73px/2 - 270.13px)',
-          background: 'radial-gradient(74.47% 74.47% at 50.03% 25.53%, rgba(98, 98, 98, 0.296) 0%, rgba(45, 106, 126, 0.296) 52.4%, rgba(22, 43, 50, 0.37) 99.04%)',
+          top: 'calc(50% - 1146.73px/2 - 350px)',
+          background: 'radial-gradient(74.47% 74.47% at 50.03% 20%, rgba(98, 98, 98, 0.296) 0%, rgba(45, 106, 126, 0.296) 52.4%, rgba(22, 43, 50, 0.37) 99.04%)',
           filter: 'blur(52.4485px)'
         }}
       />

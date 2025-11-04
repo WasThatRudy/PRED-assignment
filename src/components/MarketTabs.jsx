@@ -3,6 +3,7 @@ import { useTradeStore } from '../store/tradeStore';
 import { MarketTabButton } from './molecules';
 import { LeagueIcon } from './atoms';
 import eplLogo from '../assets/images/teamlogos/league_logo.svg';
+import playIcon from '../assets/icons/play.svg';
 
 export const MarketTabs = () => {
   const activeTab = useTradeStore((state) => state.activeMarketTab);
@@ -28,20 +29,18 @@ export const MarketTabs = () => {
   ];
 
   return (
-    <div className="flex items-center border-t border-b border-border-light relative px-4 py-3 gap-4 h-14">
-      {/* Live & Upcoming - Fixed */}
-      <MarketTabButton
-        label={tabs[0].label}
-        active={activeTab === 'live'}
-        onClick={() => setActiveTab('live')}
-        iconType="play"
-      />
+    <div className="flex items-center border-t border-b border-border-light relative px-4 py-3 gap-2 h-14">
+      {/* Live & Upcoming - Static label (not a tab) */}
+      <div className="flex items-center gap-1 flex-shrink-0">
+        <img src={playIcon} alt="play" className="w-4 h-4 opacity-70" />
+        <span className="text-white text-xs sm:text-sm opacity-70 whitespace-nowrap">{tabs[0].label}</span>
+      </div>
 
       {/* Divider */}
       <div className="border-l border-border-light flex-shrink-0 w-px h-8" />
 
       {/* Scrollable Tabs */}
-      <div className="flex items-center overflow-x-auto scrollbar-hide flex-1 gap-4">
+      <div className="flex items-center overflow-x-auto scrollbar-hide flex-1 gap-2">
         {tabs.slice(1).map((tab, index) => (
           <React.Fragment key={tab.id}>
             <MarketTabButton

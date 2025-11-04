@@ -17,7 +17,7 @@ const DEFAULT_POSITION = {
 
 export const useTradeStore = create((set) => ({
   // Tab states
-  activeMarketTab: 'live',
+  activeMarketTab: 'winner',
   activePositionTab: 'positions',
   activeFooterTab: 'trade',
   

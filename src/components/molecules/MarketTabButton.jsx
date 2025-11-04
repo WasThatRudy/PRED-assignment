@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import playIcon from '../../assets/icons/play.svg';
 
 /**
@@ -24,21 +25,29 @@ export const MarketTabButton = ({
   return (
     <button
       onClick={onClick}
-      className={`group flex items-center justify-center flex-shrink-0 h-5 gap-1 p-0 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/10 ${className}`}
+      className={`group flex items-center justify-center flex-shrink-0 h-7 gap-1 px-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/10 ${className}`}
     >
       {iconType === 'play' && (
-        <div className="w-4 h-4">
-          <img src={playIcon} alt="play" className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-        </div>
+        <motion.div className="w-4 h-4" animate={{ opacity: active ? 1 : 0.7 }} transition={{ duration: 0.25 }}>
+          <img src={playIcon} alt="play" className="w-4 h-4" />
+        </motion.div>
       )}
       {iconType === 'league' && icon && (
-        <div className="bg-white flex items-center justify-center w-4 h-4 p-[0.12rem] rounded">
+        <motion.div
+          className="bg-white flex items-center justify-center w-4 h-4 p-[0.12rem] rounded"
+          animate={{ opacity: active ? 1 : 0.7 }}
+          transition={{ duration: 0.25 }}
+        >
           {icon}
-        </div>
+        </motion.div>
       )}
-      <span className={`font-semibold whitespace-nowrap text-xs sm:text-sm leading-5 ${textColor} group-hover:text-white transition-colors`}>
+      <motion.span
+        className={`relative font-semibold whitespace-nowrap text-xs sm:text-sm leading-5 group-hover:text-white transition-colors`}
+        animate={{ opacity: active ? 0.82 : 0.4, color: '#FFFFFF' }}
+        transition={{ duration: 0.25 }}
+      >
         {label}
-      </span>
+      </motion.span>
     </button>
   );
 };

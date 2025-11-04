@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { MoreVertical } from 'lucide-react';
 import { useTradeStore } from '../store/tradeStore';
 import { PositionItem } from './PositionItem.jsx';
@@ -33,22 +34,22 @@ export const Positions = () => {
 
       {/* Tabs */}
       <div className="flex items-center border-b border-border-light p-4 gap-2.5 h-12">
-        <div className="flex items-center gap-4 h-4">
+        <div className="flex items-center gap-2 h-7">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className="flex items-center justify-center h-4 gap-2.5"
+                className="flex items-center justify-center h-7 px-2"
               >
-                <span
-                  className={`font-semibold text-[0.625rem] sm:text-xs leading-4 h-4 ${
-                    isActive ? 'text-white opacity-[0.82]' : 'text-white opacity-40'
-                  }`}
+                <motion.span
+                  className="font-semibold text-[0.625rem] sm:text-xs leading-4 text-white"
+                  animate={{ opacity: isActive ? 0.82 : 0.4 }}
+                  transition={{ duration: 0.25 }}
                 >
                   {tab.label}
-                </span>
+                </motion.span>
               </button>
             );
           })}
@@ -57,19 +58,37 @@ export const Positions = () => {
 
       {/* Positions List */}
       <div className="flex flex-col items-start p-4 gap-4 w-full max-w-full">
-        {positions.length === 0 ? (
-          <p className="text-center text-[0.625rem] sm:text-xs leading-4 text-white opacity-40 py-8 w-full">
-            No open positions
-          </p>
-        ) : (
-          positions.map((pos) => (
-            <PositionItem
+        <AnimatePresence initial={false} mode="wait">
+          {positions.map((pos) => (
+            <motion.div
               key={pos.id}
-              position={pos}
-              onClose={() => closePosition(pos.id)}
-            />
-          ))
-        )}
+              layout
+              initial={{ opacity: 0, y: 14, height: 0 }}
+              animate={{ opacity: 1, y: 0, height: 'auto' }}
+              exit={{ opacity: 0, y: -14, height: 0, marginTop: 0, marginBottom: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="w-full"
+              style={{ overflow: 'hidden' }}
+            >
+              <PositionItem
+                position={pos}
+                onClose={() => closePosition(pos.id)}
+              />
+            </motion.div>
+          ))}
+          {positions.length === 0 && (
+            <motion.p
+              key="empty"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35 }}
+              className="text-center text-[0.625rem] sm:text-xs leading-4 text-white opacity-40 py-8 w-full"
+            >
+              No open positions
+            </motion.p>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
