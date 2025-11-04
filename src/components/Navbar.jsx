@@ -1,7 +1,7 @@
 import React from 'react';
 import { LeagueSelector, EarnRewardsButton, ProfileAvatar } from './molecules';
-import logo from '../assets/images/company_logo.png';
-import eplLogo from '../assets/images/navbar/league_logo.png';
+import logo from '../assets/images/company_logo.svg';
+import eplLogo from '../assets/images/teamlogos/league_logo.svg';
 import dollar from '../assets/icons/dollar.svg';
 
 export const Navbar = () => {

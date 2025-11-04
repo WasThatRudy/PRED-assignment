@@ -2,7 +2,7 @@ import React from 'react';
 import { useTradeStore } from '../store/tradeStore';
 import { MarketTabButton } from './molecules';
 import { LeagueIcon } from './atoms';
-import eplLogo from '../assets/images/navbar/league_logo.png';
+import eplLogo from '../assets/images/teamlogos/league_logo.svg';
 
 export const MarketTabs = () => {
   const activeTab = useTradeStore((state) => state.activeMarketTab);

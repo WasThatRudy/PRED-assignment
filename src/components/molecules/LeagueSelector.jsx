@@ -14,7 +14,7 @@ export const LeagueSelector = ({ logo, eplLogo, label = 'EPL 2025', onClick, cla
   return (
     <div className={`flex items-center gap-2 min-w-0 flex-shrink-0 h-8 overflow-hidden ${className}`}>
       {/* Company Logo */}
-      <div className="relative w-8 h-8">
+      <div className="relative w-6 h-6">
         <img src={logo} alt="logo" className="absolute inset-0 w-full h-full object-contain" />
       </div>
       

@@ -11,6 +11,12 @@
     background-color: #1D1D1D;
   }
   
+  /* Section header overlay background used in Positions.jsx */
+  .bg-gradient-overlay {
+    background: linear-gradient(0deg, #9c9c9c1e, #9c9c9c1a), #2525251b;
+    background-blend-mode: overlay, normal;
+  }
+  
   .bg-overlay-blend {
     background: linear-gradient(0deg, var(--bg-overlay-gray), var(--bg-overlay-gray)), var(--bg-overlay-primary);
     background-blend-mode: overlay, normal;
@@ -47,6 +53,7 @@
 
 @layer base {
   :root {
+    --bg-overlay-section-header: rgba(37, 37, 37, 0.3);
     --bg-overlay-gray: #9c9c9c1e;
     --bg-overlay-primary: rgba(22,39,45,0.8);
   }

@@ -19,8 +19,7 @@ export const Positions = () => {
     <div className="flex flex-col w-full max-w-full mx-auto">
       {/* Section Header */}
       <div
-        className="flex items-center justify-between px-4 py-3 border-b border-border-light bg-gradient-overlay h-12 gap-[4.75rem]"
-        style={{ backgroundBlendMode: 'overlay, normal' }}
+        className="flex items-center justify-between px-4 py-3 border-b border-border-light bg-gradient-overlay backdrop-blur-[30px] h-12 gap-[4.75rem]"
       >
         <span className="font-medium text-[0.625rem] sm:text-xs leading-4 text-white opacity-[0.82] h-4">
           EPL

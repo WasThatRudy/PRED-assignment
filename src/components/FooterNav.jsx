@@ -8,7 +8,7 @@ import tradeIcon from '../assets/icons/trade.svg';
 import statsIcon from '../assets/icons/stats.svg';
 import alignCenterIcon from '../assets/icons/align-center.svg';
 import { TeamSelectorButton, IconButton, TabButton } from './molecules';
-import eplLogo from '../assets/images/navbar/league_logo.png';
+import eplLogo from '../assets/images/teamlogos/league_logo.svg';
 import infoIcon from '../assets/icons/info.svg';
 
 export const FooterNav = () => {

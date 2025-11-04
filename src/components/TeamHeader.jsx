@@ -1,5 +1,5 @@
 import React from 'react';
-import manchesterCityLogo from '../assets/images/teamlogos/manc.png';
+import manchesterCityLogo from '../assets/images/teamlogos/manc.svg';
 import { TeamInfo, PriceInfo } from './molecules';
 
 export const TeamHeader = () => {
