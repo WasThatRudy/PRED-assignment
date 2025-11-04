@@ -7,11 +7,7 @@ import dollar from '../assets/icons/dollar.svg';
 export const Navbar = () => {
   return (
     <header
-      className="w-full flex items-center justify-between px-4 py-4 border-b border-border-light backdrop-blur-[30px] h-16"
-      style={{ 
-        background: '#2525250D, #9C9C9C',
-        backgroundBlendMode: 'overlay'
-      }}
+      className="w-full flex items-center justify-between p-4 h-16 bg-overlay-blend backdrop-blur-[30px]"
     >
       {/* Left Group - Logo and League */}
       <LeagueSelector

@@ -10,13 +10,14 @@ function App() {
     <div className="relative overflow-y-auto overflow-x-hidden font-sans min-h-screen bg-[#010101] w-full max-w-full mx-auto">
       {/* Background gradient blur - Ellipse 1523 */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+        className="absolute pointer-events-none"
         style={{
-          width: '50.875rem',
-          height: '71.670625rem',
-          top: 'calc(50% - 71.670625rem/2 - 16.883125rem)',
+          width: '814px',
+          height: '1146.73px',
+          left: 'calc(50% - 814px/2)',
+          top: 'calc(50% - 1146.73px/2 - 270.13px)',
           background: 'radial-gradient(74.47% 74.47% at 50.03% 25.53%, rgba(98, 98, 98, 0.296) 0%, rgba(45, 106, 126, 0.296) 52.4%, rgba(22, 43, 50, 0.37) 99.04%)',
-          filter: 'blur(3.27803125rem)'
+          filter: 'blur(52.4485px)'
         }}
       />
 

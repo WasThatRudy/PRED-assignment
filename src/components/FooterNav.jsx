@@ -26,9 +26,9 @@ export const FooterNav = () => {
       className="fixed bottom-0 left-0 right-0 flex flex-col items-start bg-footer-gradient w-full max-w-full mx-auto h-[7.5rem]"
     >
       {/* Bottom nav - Team Selector Section */}
-      <div className="flex flex-row justify-between items-center border-t border-border-light backdrop-blur-[30px] w-full h-14 p-[0.75rem_1rem] flex-shrink-0">
+      <div className="flex flex-row justify-between items-center border-t border-border-light backdrop-blur-[30px] w-full h-14 p-3 flex-shrink-0">
         {/* Frame 849 - Container */}
-        <div className="flex flex-row items-center gap-5 mx-auto w-full max-w-full px-4 h-8">
+        <div className="flex flex-row items-center gap-2 w-full h-8">
           {/* Buttons - Manchester City */}
           <TeamSelectorButton
             logo={eplLogo}

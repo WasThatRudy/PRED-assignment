@@ -12,7 +12,7 @@ import chevronsUpDown from '../../assets/icons/updown.svg';
  */
 export const LeagueSelector = ({ logo, eplLogo, label = 'EPL 2025', onClick, className = '' }) => {
   return (
-    <div className={`flex items-center gap-2 min-w-0 flex-shrink-0 h-8 ${className}`}>
+    <div className={`flex items-center gap-2 min-w-0 flex-shrink-0 h-8 overflow-hidden ${className}`}>
       {/* Company Logo */}
       <div className="relative w-8 h-8">
         <img src={logo} alt="logo" className="absolute inset-0 w-full h-full object-contain" />
@@ -24,9 +24,9 @@ export const LeagueSelector = ({ logo, eplLogo, label = 'EPL 2025', onClick, cla
       </div>
       
       {/* League selector */}
-      <button onClick={onClick} className="flex items-center gap-1">
+      <button onClick={onClick} className="flex items-center gap-1 h-5">
         <span className="text-white opacity-80 font-semibold text-[0.625rem] sm:text-xs leading-4">{label}</span>
-        <img src={chevronsUpDown} alt="chevron" className="w-4 h-4" />
+        <img src={chevronsUpDown} alt="chevron" className="w-4 h-4 flex-shrink-0" />
       </button>
     </div>
   );

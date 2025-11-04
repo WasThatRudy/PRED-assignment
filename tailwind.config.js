@@ -24,6 +24,8 @@ export default {
         'overlay-white': 'rgba(255, 255, 255, 0.06)',
         'footer-bg': 'rgba(37, 37, 37, 0.3)',
         'footer-gradient': '#9C9C9C',
+        'bg-overlay-primary': 'rgba(37, 37, 37, 0.05)', // #2525250D
+        'bg-overlay-gray': '#9C9C9C',
         'white-82': 'rgba(255, 255, 255, 0.82)',
         'white-40': 'rgba(255, 255, 255, 0.4)',
         'white-40-hex': '#FFFFFF66',
@@ -38,6 +40,7 @@ export default {
         'radial-glow': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
         'gradient-overlay': 'linear-gradient(0deg, rgba(156, 156, 156, 0.5), rgba(156, 156, 156, 0.5)), rgba(37, 37, 37, 0.3)',
         'gradient-navbar': 'linear-gradient(0deg, #9C9C9C, #9C9C9C), rgba(37, 37, 37, 0.05)',
+        'gradient-overlay-blend': '#9C9C9C, rgba(37, 37, 37, 0.05)',
         'gradient-avatar': 'linear-gradient(180deg, #9DFDE3 0%, #E383D8 100%)',
         'gradient-green-line': 'linear-gradient(90deg, rgba(163,225,86,0.1) 0%, #8CF056 71.63%)',
       },

@@ -5,8 +5,7 @@ import { TeamInfo, PriceInfo } from './molecules';
 export const TeamHeader = () => {
   return (
     <div
-      className="flex items-start justify-between px-4 py-4 w-full bg-gradient-navbar h-[4.25rem]"
-      style={{ backgroundBlendMode: 'overlay, normal' }}
+      className="flex items-start justify-between px-4 py-4 w-full h-[4.25rem] bg-overlay-blend"
     >
       {/* Team Item */}
       <TeamInfo

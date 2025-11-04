@@ -13,7 +13,7 @@ export const IconButton = ({ icon: Icon, label, onClick, className = '', active 
   return (
     <button
       onClick={onClick}
-      className={`flex flex-row items-center bg-button-bg rounded p-[0.375rem_0.5rem] gap-2 flex-1 h-8 min-w-0 sm:w-[11.625rem] ${className}`}
+      className={`flex flex-row items-center bg-button-bg rounded px-3 py-2 gap-2 flex-1 h-8 min-w-0 max-w-full ${className}`}
     >
       {/* Custom icons */}
       <div className="relative w-5 h-5 flex-shrink-0">
@@ -23,7 +23,7 @@ export const IconButton = ({ icon: Icon, label, onClick, className = '', active 
         />
       </div>
       {/* View market info */}
-      <span className="font-semibold text-center text-[0.625rem] sm:text-xs leading-4 text-white-82 h-4 min-w-0 flex-shrink-0">
+      <span className="font-semibold text-left text-xs leading-4 text-white-82 truncate">
         {label}
       </span>
     </button>
