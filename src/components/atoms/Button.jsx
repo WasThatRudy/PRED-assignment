@@ -19,12 +19,12 @@ export const Button = ({
   disabled = false,
   ...props
 }) => {
-  const baseClasses = 'flex items-center justify-center font-semibold rounded-sm transition-colors';
+  const baseClasses = 'flex items-center justify-center font-semibold rounded-sm transition-colors transition-transform duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/10 active:scale-[0.98]';
   
   const variantClasses = {
-    primary: 'bg-brand-green text-[#111111] hover:opacity-90',
-    secondary: 'bg-white/12 text-white opacity-80 hover:opacity-100',
-    ghost: 'bg-transparent text-white opacity-80 hover:opacity-100',
+    primary: 'bg-brand-green text-[#111111] hover:brightness-95',
+    secondary: 'bg-white/12 text-white opacity-80 hover:opacity-100 hover:bg-white/16',
+    ghost: 'bg-transparent text-white opacity-80 hover:opacity-100 hover:bg-white/6',
   };
 
   const sizeClasses = {

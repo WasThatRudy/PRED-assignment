@@ -26,6 +26,7 @@ export const PositionHeader = ({ team, market, type, profit, profitPercent, clas
           <span className="font-medium text-[0.625rem] sm:text-xs leading-4 text-white opacity-40 h-4 flex-shrink-0">
             {market}
           </span>
+          <span className="font-medium text-[0.625rem] sm:text-xs leading-4 text-white opacity-40 h-4 flex-shrink-0" aria-hidden="true">·</span>
           <span className="font-medium text-[0.625rem] sm:text-xs leading-4 text-white opacity-40 h-4 flex-shrink-0">
             {type}
           </span>

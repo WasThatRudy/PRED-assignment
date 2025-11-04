@@ -10,7 +10,7 @@ export const Positions = () => {
   const closePosition = useTradeStore((state) => state.closePosition);
 
   const tabs = [
-    { id: 'positions', label: 'Position' },
+    { id: 'positions', label: 'Positions' },
     { id: 'open-orders', label: 'Open orders' },
     { id: 'trade-history', label: 'Trade History' },
   ];
@@ -57,7 +57,7 @@ export const Positions = () => {
       </div>
 
       {/* Positions List */}
-      <div className="flex flex-col items-start p-4 gap-4 w-full max-w-full h-[13.5rem] isolate overflow-y-auto scrollbar-hide">
+      <div className="flex flex-col items-start p-4 gap-4 w-full max-w-full">
         {positions.length === 0 ? (
           <p className="text-center text-[0.625rem] sm:text-xs leading-4 text-white opacity-40 py-8 w-full">
             No open positions

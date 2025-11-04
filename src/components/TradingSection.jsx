@@ -57,7 +57,7 @@ export const TradingSection = () => {
   const handleAmountChange = (e) => {
     const value = e.target.value;
     if (value === '' || value === '.') {
-      setAmount('0.00');
+      setAmount('');
       return;
     }
     const numValue = parseFloat(value);
@@ -113,8 +113,12 @@ export const TradingSection = () => {
                 onDecrement={decrementAmount}
                 placeholder="$0.00"
                 onBlur={() => {
-                  const numValue = parseFloat(amount) || 0;
-                  setAmount(numValue.toFixed(2));
+                  const numValue = parseFloat(amount);
+                  if (isNaN(numValue)) {
+                    setAmount('0.00');
+                  } else {
+                    setAmount(numValue.toFixed(2));
+                  }
                 }}
               />
 

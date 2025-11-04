@@ -38,9 +38,9 @@ export const Dropdown = ({ value, options, onChange, className = '', placeholder
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between border border-border-light rounded-sm w-full h-8 px-2 py-0 gap-[4.125rem]"
+        className="flex items-center justify-between border border-border-light rounded-sm w-full h-8 px-2 py-0 gap-2"
       >
-        <span className="font-medium text-[0.625rem] sm:text-xs leading-4 text-white opacity-[0.82] h-4">
+        <span className="font-medium text-[0.625rem] sm:text-xs leading-4 text-white opacity-[0.82] h-4 whitespace-nowrap">
           {displayValue}
         </span>
         <div className="flex items-center justify-center w-6 h-6 px-[0.1875rem] rounded-sm">
@@ -59,7 +59,7 @@ export const Dropdown = ({ value, options, onChange, className = '', placeholder
                   : 'text-white opacity-60 hover:bg-white/5'
               }`}
             >
-              {option.label}
+              <span className="whitespace-nowrap">{option.label}</span>
             </button>
           ))}
         </div>

@@ -27,7 +27,7 @@ export const PositionItem = ({ position, onClose }) => {
       <div className="absolute w-0.5 h-6 -left-4 top-[1.375rem] z-[2] bg-brand-green" />
 
       {/* Frame 877 - Close Buttons */}
-      <div className="flex flex-row items-center gap-2 w-full max-w-full px-4 h-8 z-[3] min-w-0">
+      <div className="flex flex-row items-center gap-2 w-full max-w-full h-8 z-[3] min-w-0">
         <CloseButton
           onClick={onClose}
           label="Market close"

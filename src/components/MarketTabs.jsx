@@ -44,9 +44,6 @@ export const MarketTabs = () => {
       <div className="flex items-center overflow-x-auto scrollbar-hide flex-1 gap-4">
         {tabs.slice(1).map((tab, index) => (
           <React.Fragment key={tab.id}>
-            {index > 0 && (
-              <div className="border-l border-border-light flex-shrink-0 w-px h-8" />
-            )}
             <MarketTabButton
               label={tab.label}
               active={activeTab === tab.id}

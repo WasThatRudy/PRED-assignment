@@ -47,8 +47,8 @@
 
 @layer base {
   :root {
-    --bg-overlay-gray: #9C9C9C;
-    --bg-overlay-primary: rgba(22,39,45,1.2);
+    --bg-overlay-gray: #9c9c9c1e;
+    --bg-overlay-primary: rgba(22,39,45,0.8);
   }
   
   body {
@@ -61,6 +61,17 @@
   
   html {
     overflow-x: hidden;
+  }
+
+  /* Hide number input spinners across browsers */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
   }
 }
 

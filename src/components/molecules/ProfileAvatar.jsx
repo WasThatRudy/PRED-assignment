@@ -9,8 +9,10 @@ import React from 'react';
  */
 export const ProfileAvatar = ({ src, onClick, className = '' }) => {
   return (
-    <div className={`relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0 ${className}`}>
-      <div className="w-full h-full bg-gradient-avatar" />
+    <div className="border border-border-light">
+      <div className={`relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0 ${className}`}>
+        <div className="w-full h-full bg-gradient-avatar" />
+      </div>
     </div>
   );
 };

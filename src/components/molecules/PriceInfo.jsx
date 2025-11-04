@@ -16,9 +16,22 @@ export const PriceInfo = ({ chance, currentPrice, targetPrice, className = '' })
           {chance} chance
         </span>
       </div>
-      <div className="flex items-start gap-1 h-4">
+      <div className="flex flex-row justify-end items-start gap-1 p-0 w-[70px] h-4 flex-none order-1 grow-0">
         <span className="text-right text-[0.625rem] sm:text-xs leading-4 font-medium text-white opacity-60 h-4">
-          ${currentPrice}→
+          ${currentPrice}
+        </span>
+        <span className="text-right h-4 flex items-center text-white opacity-[0.82]">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path d="M2 8H12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M9 5L12.5 8L9 11" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </span>
         <span className="text-right text-[0.625rem] sm:text-xs leading-4 font-medium text-white opacity-[0.82] h-4">
           ${targetPrice}

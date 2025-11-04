@@ -27,26 +27,35 @@ export const NumberInput = ({
       <button
         type="button"
         onClick={onDecrement}
-        className="flex items-center justify-center w-5 h-5 bg-gray-700 rounded flex-shrink-0"
+        className="group flex items-center justify-center w-5 h-5 bg-gray-700 hover:bg-white-6 active:scale-[0.98] rounded flex-shrink-0 transition duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/10"
       >
-        <Minus size={9} className="text-white opacity-60" />
+        <Minus size={9} className="text-white opacity-60 group-hover:opacity-100 transition-opacity" />
       </button>
-      
+
+      {value !== '' && (
+        <span className="text-[0.625rem] sm:text-xs leading-4 font-medium text-white opacity-60">
+          $
+        </span>
+      )}
+
       <Input
-        type="text"
+        type="number"
+        inputMode="decimal"
+        step="0.01"
+        min="0"
         value={value}
         onChange={onChange}
         placeholder={placeholder}
         onBlur={onBlur}
-        className="flex-1"
+        className="flex-1 min-w-0 text-left"
       />
       
       <button
         type="button"
         onClick={onIncrement}
-        className="flex items-center justify-center w-5 h-5 bg-gray-700 rounded flex-shrink-0"
+        className="group flex items-center justify-center w-5 h-5 bg-gray-700 hover:bg-white-6 active:scale-[0.98] rounded flex-shrink-0 transition duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/10"
       >
-        <Plus size={9} className="text-white opacity-60" />
+        <Plus size={9} className="text-white opacity-60 group-hover:opacity-100 transition-opacity" />
       </button>
     </div>
   );

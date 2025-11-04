@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme'
 export default {
   content: [
     "./index.html",
@@ -6,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         primary: '#010101',
         secondary: '#1C1C1C',
@@ -67,27 +71,6 @@ export default {
         'border-glow': {
           '0%, 100%': {
             'border-color': 'rgba(120, 120, 128, 0.12)',
-            'box-shadow': '0 0 0px rgba(42, 133, 255, 0)',
-          },
-          '50%': {
-            'border-color': 'rgba(42, 133, 255, 0.6)',
-            'box-shadow': '0 0 8px rgba(42, 133, 255, 0.4), 0 0 16px rgba(42, 133, 255, 0.2)',
-          },
-        },
-        'shimmer': {
-          '0%': {
-            'transform': 'translateX(-100%)',
-          },
-          '100%': {
-            'transform': 'translateX(100%)',
-          },
-        },
-        'border-move': {
-          '0%': {
-            'transform': 'translateX(-100%)',
-          },
-          '100%': {
-            'transform': 'translateX(400%)',
           },
         },
         'border-rotate': {

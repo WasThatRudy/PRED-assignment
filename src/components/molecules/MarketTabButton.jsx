@@ -24,11 +24,11 @@ export const MarketTabButton = ({
   return (
     <button
       onClick={onClick}
-      className={`flex items-center justify-center flex-shrink-0 h-5 gap-1 p-0 ${className}`}
+      className={`group flex items-center justify-center flex-shrink-0 h-5 gap-1 p-0 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/10 ${className}`}
     >
       {iconType === 'play' && (
         <div className="w-4 h-4">
-          <img src={playIcon} alt="play" className="w-4 h-4" />
+          <img src={playIcon} alt="play" className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
         </div>
       )}
       {iconType === 'league' && icon && (
@@ -36,7 +36,7 @@ export const MarketTabButton = ({
           {icon}
         </div>
       )}
-      <span className={`font-semibold whitespace-nowrap text-xs sm:text-sm leading-5 ${textColor}`}>
+      <span className={`font-semibold whitespace-nowrap text-xs sm:text-sm leading-5 ${textColor} group-hover:text-white transition-colors`}>
         {label}
       </span>
     </button>

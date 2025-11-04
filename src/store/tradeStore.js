@@ -26,7 +26,7 @@ export const useTradeStore = create((set) => ({
   setOrderType: (type) => set({ orderType: type }),
   
   // Amount
-  amount: '0.00',
+  amount: '',
   setAmount: (amount) => set({ amount }),
   setAmountByPercentage: (percentage) => {
     const balance = 265;
