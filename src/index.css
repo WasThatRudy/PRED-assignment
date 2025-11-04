@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-footer-gradient {
+    background: #7878801F;
+  }
+  
+  .bg-button-bg {
+    background-color: #1D1D1D;
+  }
+  
+  /* Transparent checkbox with custom checkmark */
+  .checkbox-transparent {
+    appearance: none;
+    background: transparent !important;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.8);
+    border-radius: 0.25rem;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .checkbox-transparent:checked {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .checkbox-transparent:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1;
+  }
+}
+
+@layer base {
+  
+  body {
+    background-color: #000000; /* matches bg-primary */
+    color: #FFFFFF; /* matches text-primary */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  
+  html {
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar for webkit browsers */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
